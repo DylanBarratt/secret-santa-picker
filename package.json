@@ -18,6 +18,8 @@
     "homepage": "https://github.com/DylanBarratt/secret-santa-picker#readme",
     "dependencies": {
         "dotenv": "^16.0.3",
-        "nodemailer": "^6.8.0"
+        "fs": "^0.0.1-security",
+        "nodemailer": "^6.8.0",
+        "util": "^0.12.5"
     }
 }
