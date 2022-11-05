@@ -1,0 +1,22 @@
+{
+  "name": "secret-santa-picker",
+  "version": "1.0.0",
+  "description": "Picks and sends emails to entered participants for secret santa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DylanBarratt/secret-santa-picker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DylanBarratt/secret-santa-picker/issues"
+  },
+  "homepage": "https://github.com/DylanBarratt/secret-santa-picker#readme",
+  "dependencies": {
+    "nodemailer": "^6.8.0"
+  }
+}
