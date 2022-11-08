@@ -10,15 +10,14 @@ var transporter = nodemailer.createTransport({
     },
 });
 
-const emails = fs.readFileSync("emails.txt", { encoding: "utf8", flag: "r" });
-const emailsArray = emails.split("\n");
+const emails = JSON.parse(fs.readFileSync("emails.json", { encoding: "utf8", flag: "r" }));
 
-emailsArray.forEach((ele) => {
+emails.forEach((ele) => {
     var mailOptions = {
         from: process.env.USER_EMAIL,
-        to: ele,
+        to: ele.email,
         subject: "Sending Email using Node.js",
-        text: "Hello " + ele,
+        text: "Hello " + ele.name,
     };
 
     transporter.sendMail(mailOptions, function (error, info) {
