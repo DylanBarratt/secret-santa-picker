@@ -44,15 +44,24 @@ for (i = 0; i < p.length; i++) {
     p[i].recipient = dupe[i].name;
 }
 
+const imgLink =
+    "https://www.thesprucecrafts.com/thmb/ElGt-Ec0NVdUWnvGPHKRgTMBlLU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SantaAndSleigh2-5bfc3119c9e77c0026316627.png";
 if (checkWorked(p)) {
     p.forEach((ele) => {
-        const img1Link =
-            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.thesprucecrafts.com%2Ffree-santa-clip-art-1356291&psig=AOvVaw0ntydLN2tINTzKfjHn6r3b&ust=1668071379442000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCLjlxqLgoPsCFQAAAAAdAAAAABAJ";
         var mailOptions = {
             from: process.env.USER_EMAIL,
             to: ele.email,
             subject: process.env.SUBJECT_LINE,
-            html: "<img src=" + img1Link + "/><br/><h2> Hello " + ele.name + "!</h2>" + "<h4>you have been assigned <i>" + ele.recipient + ".</i><h4>",
+            html:
+                "<h2> Hello " +
+                ele.name +
+                "!</h2>" +
+                "<h4>you have been assigned <i>" +
+                ele.recipient +
+                ".</i><h4>" +
+                "<img src=" +
+                imgLink +
+                " width='400' height='281'></img>",
         };
 
         transporter.sendMail(mailOptions, function (error, info) {
