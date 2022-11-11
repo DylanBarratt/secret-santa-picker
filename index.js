@@ -47,7 +47,7 @@ for (i = 0; i < p.length; i++) {
 const imgLink =
     "https://www.thesprucecrafts.com/thmb/ElGt-Ec0NVdUWnvGPHKRgTMBlLU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SantaAndSleigh2-5bfc3119c9e77c0026316627.png";
 if (checkWorked(p)) {
-    p.forEach((ele) => {
+    p.forEach((ele, index) => {
         var mailOptions = {
             from: process.env.USER_EMAIL,
             to: ele.email,
@@ -64,12 +64,18 @@ if (checkWorked(p)) {
                 " width='400' height='281'></img>",
         };
 
-        transporter.sendMail(mailOptions, function (error, info) {
-            if (error) {
-                console.log(error);
-            } else {
-                console.log("Email sent: " + info.response);
-            }
-        });
+        setTimeout(() => {
+            sendmail();
+        }, 1000 * index);
+
+        function sendmail() {
+            transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log("Email sent" + info.response);
+                }
+            });
+        }
     });
 }
